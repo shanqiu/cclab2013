@@ -2,34 +2,49 @@
 <html>
 	<head>
 	</head>
-	<body>
+	<body style="background-color:white;">
+
+		<!-- a canvas with the id of "main" -->
 		<canvas id="main" width="1000" height = "1000"></canvas>
+
 		<script type="text/javascript">
 			
 			var canvas = document.getElementById('main');
 			var ctx = canvas.getContext('2d');
 
 
+			// a function named drawFunction, requires two parameters: x, y
+			var drawFunction = function( x , y ){
+				ctx.fillStyle = "rgba(200, 50, 75, 0.3)"; //reddish with alpha
+				ctx.fillRect(x+50, y, 10, 10); //draw a rect 50px to the right of the mouse
+			}
 
 
-			canvas.addEventListener('mousemove', function(e){ 
-
+			// event listener for the canvas
+			canvas.addEventListener('mousemove', function(e){ //listening for 'mousemove'
 				//this is an anonymous function
 				//it will execute the code inside of it whenever the listener is triggered
 
-				//console.log(e); //logging data about our mouse position within canvas
+				console.log(e); //logging data about our mouse position within canvas
 
-				//console.log("x: "+e.x+ " | y: "+e.y);
+				var mouseX = e.x; //pull the x out of the event, store it "mouseX"
+				var mouseY = e.y; //pull the y out of the event, store it "mouseY"
 
-				ctx.fillRect(e.x, e.y, 20, 20);
+				console.log("x: "+ mouseX + " | y: "+ mouseY);
 
+				ctx.fillStyle = "rgb(0, 0, 0)"; //fill black
+				ctx.fillRect(mouseX, mouseY, 20, 20); //draw a rect at mouseX and mouseY
+
+				drawFunction(mouseX, mouseY); //pass mouseX and mouseY into the drawFunction and run it!
 			});
 
-			window.addEventListener('keydown',function(e){
 
-				console.log(e.which);
+			// event listener for the entire window
+			window.addEventListener('keydown',function(e){ //listening for a 'keydown'
 
-				if(e.which == 38)console.log('Key Up');//check for key up
+				console.log("keydown id: "+ e.which);
+
+				if(e.which == 38)console.log('HIT THE UP ARROW');//check for key up
 			});
 
 

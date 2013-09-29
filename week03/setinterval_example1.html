@@ -1,0 +1,70 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<style>
+			body{ margin: 0; 
+				  padding: 0; 
+				  width: 100%; 
+				  height:100%;
+				}
+		</style>
+	</head>
+
+	<body>
+		<p id="counter"></p>
+		<canvas id="canvas" width = "800" height = "800"></canvas>
+
+		<script type="text/javascript">
+			var canvas = document.getElementById('canvas');
+			var context = canvas.getContext('2d');
+			//console.log(canvas.width);
+			//console.log(canvas.height);
+			
+			//global Variables
+			var width = 20;
+			var height = width;
+
+			var x = 10;
+			var y = 10;
+
+			var speedX = 10;
+			var speedY = 15;
+
+			//set interval executes a function at a specific time, in a loop!
+			//setInterval(functionName, milliseconds);
+			setInterval(draw, 1000/60); //calling draw at 60 frames per second
+			
+			//draw(); //calling draw once
+
+			function draw(){
+
+				context.fillStyle = "rgba(30,30,30,0.2)";//background color uses alpha for fade effect
+				context.fillRect(0,0, 800,800); //draw a background
+				
+				var r = x/2; //use x and y coordinates to change color of our rect
+				var g = y/2;
+				var b = 255-r;
+
+				//set the color of rectangle
+				context.fillStyle = "rgb("+r+","+g+","+b+")";
+				//draw our rectangle
+				context.fillRect(x,y,width,height);
+
+				//if we are out of bounds switch our speed!
+				if(x >= canvas.width - width || x<= 0 ){
+					speedX*= -1;
+				} 
+				if(y >= canvas.height - height || y<= 0){
+					speedY*= -1;
+				} 
+
+				//console.log(Math.random()*10);
+				x += speedX; //x = x+ speedX;
+				y += speedY; //y = y+ speedY;
+			}
+
+			console.log(Math.random()*10);
+		</script>
+	</body>
+
+</html>

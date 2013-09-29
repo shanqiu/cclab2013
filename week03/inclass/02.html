@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+
+	</head>
+	<body>
+
+		<script type="text/javascript">
+		var myArray = new Array();
+		//longhand
+		var myColorObject = new Object();
+
+		myColorObject.red = 200;
+		myColorObject.green = 100;
+		myColorObject.blue = 50;
+		//console.log(myColorObject.red);
+
+		//shorthand
+		var myOtherColorObject = {red: 50,green: 150,blue: 255};
+		//console.log(myOtherColorObject.green);
+
+		//generic function
+		function printSomething(){
+			console.log("this is something");
+		}
+
+		myColorObject.print = printSomething;
+		myOtherColorObject.print = printSomething;
+
+		myColorObject.print();
+
+
+		myOtherColorObject.thisMethod = function thisMethod(){
+			console.log("hit thisMethod");
+		}
+
+		myOtherColorObject.thisMethod();
+
+		</script>
+
+	</body>
+</html>

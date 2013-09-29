@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+	<body>
+		<script type="text/javascript">
+
+		//2 ways to declare Objects:
+
+		//longhand
+		var color1 = new Object(); //declare empty object
+		color1.r = 255; //create members of that object, give it a value
+		color1.g = 200;
+		color1.b = 212;
+		color1.a = 255;
+
+		//shorthand
+		var color2 = { // create object right away with "{"
+			r : 99,	//create members and assign values with ":"
+			g : 67,
+			b : 255,
+			a : 10,
+		};
+
+		//this is a generic function that prints 
+		//anything ("something") to the console
+		function printSomething(something){
+			console.log(something);
+		};
+
+		//create "color2.print" member and set it to contain the function printSomething
+		color2.print = printSomething;
+
+		//execute color2.print, and pass in the object color1 (will print color1 to console)
+		color2.print(color1);
+
+		//console.log(color1);
+		//console.log(color2);
+
+		</script>
+	</body>
+</html>

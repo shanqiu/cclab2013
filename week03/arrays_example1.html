@@ -11,14 +11,10 @@
 		 console.log( array[3] );
 
 		 for(var i = 0; i < array.length; i++){ 
-		 	console.log("Original Array "+array[i]);		 
+		 	console.log("Original Array, index "+i+":  "+array[i]);		 
 		 }
-		 //pull out last element from the array
-		 array.pop();
-
-		 //pull out a specific element from 
-		 //array pass in array index to remove
-		 array.splice(3,1  );
+		 //pull out last element from the array, also print it out
+		 console.log(array.pop());
 
 
 		 //add new elements to array
@@ -26,7 +22,9 @@
 		 array.push("hello");
 		 
 
-		 for(var i = 0; i <array.length; i++) console.log("New Array "+array[i] );
+		 for(var i = 0; i <array.length; i++){
+		 	console.log("New Array, index "+i+":  "+array[i] );
+		 } 
 
 		</script>
 	</body>
